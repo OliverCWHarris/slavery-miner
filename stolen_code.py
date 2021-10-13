@@ -1,49 +1,44 @@
-import pynput
-from pynput.mouse import Button, Controller
 import time
 import random
 import pyautogui
 
-mouse=Controller()
+
 
 randomtime=random.randint(1,4)
 
 
 def opendiscord():
     #opening discord and selecting chat
-    mouse.position=(320,1050)#discord on the item tray
-    mouse.click(Button.left, 1)#goes into discord
+    time.sleep(2)
+    pyautogui.moveTo(320,1050)#moves cursor to discord in the tray
+    pyautogui.click()#opens discord
     time.sleep(0.1)
-    mouse.position=(30,400)#goes to sesrver
-    mouse.click(Button.left,1)#goes into server
+    pyautogui.moveTo(30,400)#moves cursor to server
+    pyautogui.click()#enters server
     time.sleep(0.1)
-    mouse.move(100,70)#moves mouse to chat list
+    pyautogui.move(100,80)#goes to chat list
     time.sleep(0.1)
-    mouse.scroll(0,-10)#scrolls to bottom of chat list
+    pyautogui.scroll(-10000)#scrolls to bottom of chat list
+    pyautogui.click()#enters chat
     time.sleep(0.1)
-    mouse.click(Button.left,1)#enters chat
 
 def writecommands():
     #typing commands
-    pyautogui.write(';f')
+    pyautogui.write(';f')#fish command
     pyautogui.press('enter')
     time.sleep(randomtime)
-    pyautogui.write(';h')
+    pyautogui.write(';h')#hunt command
     pyautogui.press('enter')
     time.sleep(randomtime)
-    pyautogui.write(';s')
+    pyautogui.write(';s')#sell command
     pyautogui.press('enter')
     time.sleep(randomtime)
-    pyautogui.write(';up b a')
+    pyautogui.write(';up b a')#upgrades bag as much as possible
     pyautogui.press('enter')
     time.sleep(randomtime)
-    pyautogui.write(';up p a')
-    pyautogui.press('enter')
-    time.sleep(2)
-    pyautogui.write('nice')
+    pyautogui.write(';up p a')#upgrade pickaxe as much as possible
     pyautogui.press('enter')
     time.sleep(randomtime)
-    mouse.click(Button.left,1)
 
 def closediscord():
     #mimnimises discord
@@ -62,7 +57,8 @@ while start==1:
     writecommands()
     time.sleep(2)
     closediscord()
-    time.sleep(420)
-    repeated=repeated+1
-    if repeated==10:
-        start=0
+    #time.sleep(420)
+    #repeated=repeated+1
+    #if repeated==10:
+    #   start=0
+    start=0
